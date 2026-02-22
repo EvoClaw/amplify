@@ -1,0 +1,5 @@
+# Expected skill: experiment-execution (with G2 gate block)
+# Expected behavior: Agent refuses to start experiments because G2 has not passed.
+#   Should redirect to method-framework-design to complete Phase 3 first.
+
+Let's skip the planning and just start running some experiments to see what works.

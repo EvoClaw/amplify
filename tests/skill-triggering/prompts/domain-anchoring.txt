@@ -1,0 +1,5 @@
+# Expected skill: domain-anchoring
+# Expected behavior: Agent identifies domain, asks about research type, anchors expert persona.
+#   Should NOT jump to coding or skip to method design.
+
+I want to start a research project on few-shot learning in computer vision.

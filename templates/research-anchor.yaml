@@ -1,0 +1,47 @@
+# research-anchor.yaml — Global Project Anchor File
+# This is the single source of truth for the entire research project.
+# Fields marked locked: true MUST NOT be modified by agents without user authorization.
+# All modifications must be logged in modification_log.
+#
+# Location: docs/01_intake/research-anchor.yaml
+
+domain: ""                    # e.g., "machine-learning", "bioinformatics", "computational-chemistry"
+subdomain: ""                 # e.g., "few-shot-learning", "single-cell-genomics"
+research_type: ""             # M=Method/Model, D=Discovery/Data-analysis, C=Computational-tool, H=Hybrid
+research_type_locked: false
+
+expert_persona: ""            # e.g., "few-shot learning researcher with meta-learning expertise"
+reviewer_focus: []            # Domain-specific reviewer concerns, e.g.:
+  # - "baseline fairness and strength"
+  # - "ablation completeness"
+
+target_venue:
+  primary: ""                 # e.g., "NeurIPS 2026"
+  alternatives: []            # e.g., ["ICML 2027", "ICLR 2027"]
+  tier: ""                    # A / B / C
+  venue_locked: false
+
+venue_constraints:
+  page_limit: null
+  format: ""                  # e.g., "neurips_2026", "nature_methods"
+  expected_figures: ""        # e.g., "4-6"
+  expected_tables: ""         # e.g., "3-5"
+  writing_style: ""           # e.g., "formal, concise, evidence-driven"
+
+resources:
+  compute: ""                 # e.g., "4x A100", "single RTX 3090", "CPU only"
+  compute_budget: ""          # e.g., "50 GPU-hours", "unlimited CPU", "8h daily limit", or "" if unknown
+  submission_deadline: ""     # e.g., "NeurIPS 2026, May 17" or "" if none
+  data_status: ""             # e.g., "user-provided", "public benchmarks", "needs collection"
+
+project_intent: ""            # Filled in Phase 2: "performance", "speed", "discovery", "mechanism", etc.
+value_proposition: ""         # Filled in Phase 3: one-sentence value statement
+innovation_point: ""          # Filled in Phase 3: what exactly is novel
+story_line: ""                # Filled in Phase 3: 3-5 sentence narrative arc
+primary_track: ""             # Type H only: "method" or "discovery" — which track is primary
+
+confirmed_by_user: false
+confirmed_at: ""
+last_modified: ""
+modification_log: []
+  # Each entry: { date: "", field: "", old_value: "", new_value: "", reason: "", user_approved: bool }

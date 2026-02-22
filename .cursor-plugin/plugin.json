@@ -1,0 +1,17 @@
+{
+  "name": "amplify",
+  "displayName": "Amplify",
+  "description": "Research workflow skills library: from topic selection through experimentation to paper writing, with scientific discipline enforcement",
+  "version": "0.1.0",
+  "author": {
+    "name": "Yan Lin",
+    "email": ""
+  },
+  "homepage": "",
+  "license": "MIT",
+  "keywords": ["research", "science", "tdd", "reproducibility", "paper-writing", "experiment", "methodology", "statistics"],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "hooks": "./hooks/hooks.json"
+}

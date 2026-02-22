@@ -1,0 +1,5 @@
+# Expected skill: research-direction-exploration
+# Expected behavior: Agent enters Path A (vague direction), searches for sub-directions,
+#   presents options with recommendation. Should NOT skip literature review.
+
+I want to publish a paper on graph neural networks. What direction should I take?

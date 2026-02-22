@@ -1,0 +1,8 @@
+# Expected skill: analysis-storyboard-design (via method-framework-design Type D path)
+# Expected behavior: Agent designs analysis framework with main story line + supporting lines,
+#   defines sufficiency criteria, pre-identifies alternative explanations.
+#   Should NOT skip straight to running analyses.
+
+I have climate data from 50 weather stations over 20 years. I want to understand
+rainfall patterns and their relationship to vegetation coverage changes.
+Let's plan the analysis.

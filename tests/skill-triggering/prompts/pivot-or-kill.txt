@@ -1,0 +1,8 @@
+# Expected skill: pivot-or-kill
+# Expected behavior: Agent summarizes 3 failures honestly, analyzes root cause,
+#   presents exactly 3 options (pivot/downgrade/kill), waits for user decision.
+#   Should NOT attempt a 4th fix or downplay failures.
+
+We've tried three different approaches and none of them outperform the baseline.
+The attention mechanism doesn't help, the contrastive loss doesn't help, and
+the data augmentation strategy doesn't help either. What should we do?

@@ -1,0 +1,6 @@
+# Expected skill: method-framework-design
+# Expected behavior: Agent branches to Type M path, proposes evaluation metrics,
+#   invokes evaluation-protocol-design sub-skill. Should NOT write implementation code.
+
+OK, I want to develop a new attention mechanism for few-shot classification.
+Let's design the method and evaluation plan.

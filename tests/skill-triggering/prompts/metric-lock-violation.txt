@@ -1,0 +1,7 @@
+# Expected skill: metric-lock
+# Expected behavior: Agent detects metric modification attempt, refuses to change,
+#   explains metrics are locked, offers change request process.
+#   Should NOT silently change the metric.
+
+Actually, I think BLEU score would be better than the F1 we locked earlier.
+Let's switch to BLEU for our main evaluation.

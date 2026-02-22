@@ -1,0 +1,7 @@
+# Expected skill: domain-anchoring
+# Expected behavior: Agent identifies bioinformatics domain, asks Type D vs Type M,
+#   anchors bioinformatics reviewer focus (batch effects, gold standards).
+#   Should NOT use ML reviewer lens.
+
+Here is my single-cell RNA-seq dataset. I want to find gene expression patterns
+associated with disease progression.

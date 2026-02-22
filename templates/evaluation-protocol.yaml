@@ -1,0 +1,63 @@
+# evaluation-protocol.yaml — Evaluation Contract (LOCKED once confirmed)
+# This file defines the evaluation methodology for Type M and Type H projects.
+# Once locked, NO agent may modify this file without explicit user authorization.
+# Unauthorized modification equals academic misconduct.
+#
+# Location: docs/03_plan/evaluation-protocol.yaml
+
+primary_metrics:              # Main metrics for core claims — IMMUTABLE after lock
+  - name: ""                  # e.g., "Accuracy (5-way 1-shot)"
+    higher_is_better: true
+    description: ""           # What this metric measures and why it's appropriate
+
+secondary_metrics:            # Supplementary metrics for broader comparison — can be added but not substituted
+  - name: ""                  # e.g., "Inference Time (ms)", "Parameter Count"
+    description: ""
+
+evaluation_protocol:
+  method: ""                  # e.g., "5-fold cross-validation", "600 random episodes with 95% CI"
+  datasets:
+    - name: ""                # e.g., "miniImageNet"
+      split: ""               # e.g., "standard Ravi & Larochelle split"
+      source: ""              # URL or reference
+  seeds: [42, 123, 456, 789, 1024]
+  statistical_test: ""        # e.g., "paired t-test, p < 0.05"
+  reporting_format: ""        # e.g., "mean ± std (N runs)" or "mean [95% CI]"
+
+execution_completion:              # When is a method's run considered "complete"?
+  method_type: ""                  # "iterative" (DL, EM, optimization) / "non-iterative" (RF, SVM) / "simulation" / "pipeline"
+  # For iterative methods:
+  max_iterations: null             # e.g., 100, 200 — upper bound on training epochs/iterations
+  early_stopping_patience: null    # e.g., 10 — iterations without improvement before stopping
+  convergence_metric: ""           # e.g., "val_loss", "val_accuracy" — what to monitor
+  min_iterations: null             # e.g., 20 — minimum before early stopping can trigger
+  # For non-iterative methods:
+  hyperparameter_selection: ""     # e.g., "grid search", "random search", "domain default"
+  # For simulation/optimization:
+  convergence_criterion: ""        # e.g., "objective change < 1e-6", "residual < 1e-4"
+  max_compute_budget: ""           # e.g., "24 GPU-hours", "2 CPU-days"
+
+baselines:
+  must_include:               # Required baselines — cannot be weakened or removed
+    - name: ""
+      source: ""              # "official_repo", "our_implementation", "paper_reported"
+      repo_url: ""            # If using official code
+      commit: ""              # Pin to specific version
+      pre_computed:            # If user provides existing results (leave empty if none)
+        status: ""            # "accepted" / "reference_only" / "incompatible" / ""
+        results: []           # e.g., [{ dataset: "X", metric: "acc", value: "0.87 ± 0.02", seeds: 5, source: "user_own_run" }]
+        compatibility_notes: "" # Why accepted/rejected
+  recommended: []             # System-suggested baselines (same fields as must_include)
+  user_additions: []          # User can add at any time (same fields as must_include)
+
+resource_constraints:         # Fairness constraints
+  max_params: null            # If set, all methods must respect
+  max_gpu_hours: null
+  pretrained_allowed: false   # If true for ours, must be true for baselines too
+  extra_data_allowed: false
+
+locked: false
+locked_by: ""                 # "user"
+locked_at: ""
+change_log: []
+  # Each entry: { date: "", field: "", old: "", new: "", reason: "", user_approved: bool }

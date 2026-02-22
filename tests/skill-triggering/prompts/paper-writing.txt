@@ -1,0 +1,6 @@
+# Expected skill: paper-writing
+# Expected behavior: Agent checks G4 gate status. If not passed, redirects to
+#   results-integration. If passed, confirms venue and sets up LaTeX structure.
+#   Should NOT write prose before section outline is approved.
+
+I think the results look good. Let's start writing the paper for NeurIPS.
