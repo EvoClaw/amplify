@@ -241,3 +241,20 @@ Only after ALL applicable items pass: set G2 status to `passed` and proceed to e
 4. Present G2 gate checklist to user
 5. Get explicit user approval on every item
 6. Mark G2 as passed — proceed to `experiment-execution`
+
+<IRON-LAW>
+## ⛔ MANDATORY STOP — After G2 Gate
+
+After presenting the G2 gate checklist, **END YOUR RESPONSE IMMEDIATELY.**
+
+Do NOT invoke `experiment-execution` in this same response.
+Do NOT begin implementing code, downloading data, or setting up experiments.
+Do NOT proceed to G3 check.
+
+**STOP. WAIT. The user must approve the frozen plan before any execution begins.**
+
+Your final output should be the G2 checklist followed by:
+"G2 gate checklist is above. Plan is frozen. Do you approve proceeding to Phase 4 (Experiment Execution)?"
+
+Then STOP.
+</IRON-LAW>

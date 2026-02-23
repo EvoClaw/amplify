@@ -290,6 +290,19 @@ Only after ALL applicable items pass: set G4 status to `passed` and proceed to `
 
 <IRON-LAW>
 If the user has NOT explicitly said "ready to write paper" or equivalent, G4 CANNOT pass. Do NOT infer readiness from silence, from "okay", or from "looks good" (which may refer to results, not write-readiness). ASK EXPLICITLY: "Shall I proceed to paper writing now?"
+
+## ⛔ MANDATORY STOP — This is the LAST checkpoint before paper writing
+
+After presenting the G4 checklist, **END YOUR RESPONSE IMMEDIATELY.**
+
+Do NOT invoke `paper-writing` in this same response.
+Do NOT begin writing any LaTeX.
+Do NOT set up the paper directory structure.
+
+**STOP. WAIT.** The user must explicitly say "ready to write paper" or equivalent.
+
+If you find yourself writing LaTeX without the user having said these words,
+**YOU ARE VIOLATING A CRITICAL RULE.** Stop immediately.
 </IRON-LAW>
 
 ## Red Flags — STOP

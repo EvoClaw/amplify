@@ -3,6 +3,16 @@ name: problem-validation
 description: Use when Phase 1 (research-direction-exploration) is complete and G1 gate has passed — subjects the research problem to adversarial defense-style questioning, classifies project intent, re-evaluates venue target, and produces a final feasibility ruling before any method design begins
 ---
 
+<IRON-LAW>
+THIS PHASE IS NEVER OPTIONAL. It is required for ALL research types:
+- Type M: adversarial questioning catches flawed assumptions before expensive experiments
+- Type D: stress-testing the research question prevents shallow "we looked at data and found stuff" discoveries
+- Type C: questioning reveals usability assumptions
+- Type H: needed for both method and discovery components
+
+"It's just data analysis, no need for validation" is the #1 reason Type D projects fail. DO NOT SKIP THIS PHASE.
+</IRON-LAW>
+
 # Problem Validation (Phase 2)
 
 ## Overview
@@ -134,3 +144,20 @@ Survive the defense before you build the method.
 
 **Gate passed → invoke method-framework-design skill for Phase 3.**
 **Any item unresolved → resolve with user before proceeding.**
+
+<IRON-LAW>
+## ⛔ MANDATORY STOP
+
+After presenting the Final Feasibility Assessment checklist, **END YOUR RESPONSE IMMEDIATELY.**
+
+Do NOT invoke `method-framework-design` or any other skill in this same response.
+Do NOT say "let me proceed to Phase 3."
+Do NOT begin method or analysis design.
+
+**STOP. WAIT. The user must reply with approval before you do anything else.**
+
+Your final output for this phase should be the feasibility checklist followed by:
+"Phase 2 validation complete. Do you approve proceeding to Phase 3 (Method/Analysis Design)?"
+
+Then STOP.
+</IRON-LAW>

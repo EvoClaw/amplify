@@ -15,13 +15,34 @@ IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT.
 This is not negotiable. This is not optional. You cannot rationalize your way out of this.
 </EXTREMELY-IMPORTANT>
 
+## ⛔ ABSOLUTE RULE: ONE PHASE PER TURN — STOP AND WAIT
+
+<IRON-LAW>
+YOU MUST COMPLETE ONLY **ONE PHASE** PER RESPONSE.
+
+After completing a phase or reaching a gate:
+1. Present deliverables and/or gate checklist
+2. **END YOUR RESPONSE — STOP GENERATING**
+3. Wait for the user to reply with explicit approval
+4. Only then proceed to the next phase
+
+**NEVER** execute Phase 0 + Phase 1 in one turn.
+**NEVER** skip Phase 2 (problem validation) — it is required for ALL types including Type D.
+**NEVER** skip Phase 5 (results integration) or its multi-agent discussion panel.
+**NEVER** auto-proceed to paper writing — user must explicitly say "ready for paper" or equivalent.
+
+During Phase 6 (paper writing): present EACH SECTION individually and wait for user feedback before writing the next section.
+
+If you find yourself executing more than one phase in a single response, **YOU ARE VIOLATING THE MOST IMPORTANT RULE**. Stop immediately.
+</IRON-LAW>
+
 ## How to Access Skills in Cursor
 
 Use the `Read` tool on skill files located at `~/.cursor/skills/amplify/skills/{skill-name}/SKILL.md`.
 
 **To load a skill:** `Read ~/.cursor/skills/amplify/skills/{skill-name}/SKILL.md`
 
-## Available Skills (22)
+## Available Skills (23)
 
 ### Workflow Skills — Phase-by-phase research flow
 
@@ -92,15 +113,17 @@ Progress between phases requires passing gates. No gate may be skipped:
 
 ## Research Workflow Priority
 
-When a user describes research intent, follow this order:
+When a user describes research intent, determine which phase to execute **ONE AT A TIME**:
 
-1. Domain anchored? → If no, invoke `domain-anchoring`
-2. Direction explored? → If no, invoke `research-direction-exploration`
-3. Problem validated? → If no, invoke `problem-validation`
-4. Method designed? → If no, invoke `method-framework-design`
-5. Executing experiments? → If yes, invoke `experiment-execution`
-6. Results ready? → If yes, invoke `results-integration`
-7. Writing paper? → Only when user explicitly requests, invoke `paper-writing`
+1. Domain anchored? → If no, invoke `domain-anchoring` → **STOP and wait for user**
+2. Direction explored? → If no, invoke `research-direction-exploration` → present G1 → **STOP and wait**
+3. Problem validated? → If no, invoke `problem-validation` → **STOP and wait** (**NEVER skip this, even for Type D**)
+4. Method designed? → If no, invoke `method-framework-design` → present G2 → **STOP and wait**
+5. Executing experiments? → If yes, invoke `experiment-execution` → present results → **STOP and wait**
+6. Results ready? → If yes, invoke `results-integration` → present G4 → **STOP and wait**
+7. Writing paper? → **ONLY** when user explicitly says "ready for paper", invoke `paper-writing`
+
+**Each arrow (→) followed by STOP means: end your response, wait for user reply. Do NOT chain phases.**
 
 ## Research Type Awareness
 
@@ -115,13 +138,15 @@ Every decision must account for the project's research type (from `research-anch
 
 These rules are NON-NEGOTIABLE and must be followed regardless of time pressure or user impatience:
 
-1. **Run to completion (Type M)**: Every method must execute its full intended procedure. For iterative methods (DL, optimization): train to convergence. For non-iterative methods (RF, SVM, etc.): fit with full data and intended hyperparameters. Partial or prematurely stopped runs are smoke tests, NOT experiments.
-2. **Iterate before moving on (Type M)**: Minimum 3 iteration rounds with diagnose-hypothesize-fix-measure before declaring a method doesn't work.
-3. **Performance bar before results integration**: Method must be competitive with baselines before proceeding. 0.42 vs 0.95 is NOT acceptable — go back and fix it.
-4. **User must say "ready for paper"**: Do NOT auto-proceed to paper writing. ASK explicitly.
-5. **Minimum paper quality**: 3+ figures, 2+ tables, 20+ references (conference), 600+ word intro, 500+ word related work, 400+ word discussion. Below these = expand before submitting.
-6. **Modular LaTeX**: One `.tex` file per section. Single-file papers are FORBIDDEN.
-7. **Present each section individually**: Do NOT write the entire paper silently and dump it. Section-by-section review with user.
+1. **ONE PHASE PER TURN**: Complete one phase, present deliverables, STOP, wait for user. Never chain multiple phases in a single response. This is the #1 rule.
+2. **NO PHASE IS OPTIONAL**: All 7 phases are required for all research types. Phase 2 (problem validation) is required for Type D — "it's just data analysis" is not an excuse. Phase 5 (results integration) must include the multi-agent discussion panel.
+3. **Run to completion (Type M)**: Every method must execute its full intended procedure. Partial or prematurely stopped runs are smoke tests, NOT experiments.
+4. **Iterate before moving on (Type M)**: Minimum 3 iteration rounds with diagnose-hypothesize-fix-measure before declaring a method doesn't work.
+5. **Performance bar before results integration**: Method must be competitive with baselines before proceeding. 0.42 vs 0.95 is NOT acceptable — go back and fix it.
+6. **User must say "ready for paper"**: Do NOT auto-proceed to paper writing. ASK explicitly and wait for the answer.
+7. **Minimum paper quality**: 3+ figures, 2+ tables, 20+ references (conference), 600+ word intro, 500+ word related work, 400+ word discussion. Below these = expand before submitting.
+8. **Modular LaTeX**: One `.tex` file per section. Single-file papers are FORBIDDEN.
+9. **Present each section individually**: Write one section → present to user → wait for feedback → revise → next section. Do NOT write the entire paper silently and dump it.
 
 ## Red Flags
 
@@ -129,6 +154,9 @@ These thoughts mean STOP — you're rationalizing:
 
 | Thought | Reality |
 |---------|---------|
+| "Let me do the next phase too" | ONE PHASE PER TURN. Stop and wait for user. This is the #1 rule. |
+| "Phase 2 isn't needed here" | Phase 2 is ALWAYS needed. Especially for Type D. |
+| "Results are done, let me write the paper" | User must say "ready for paper." Ask and wait. |
 | "Let me just start coding" | Method design and evaluation protocol come first. |
 | "This is a simple analysis" | Simple analyses still need a story line and sufficiency criteria. |
 | "I know what metric to use" | Metrics must be discussed, locked, and documented. |

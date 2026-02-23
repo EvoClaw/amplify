@@ -196,16 +196,36 @@ Action needed:
 
 ### Per-Section Cycle
 
+<IRON-LAW>
+## ONE SECTION PER TURN
+
+Write ONE section → present it to the user with word/citation counts → **END YOUR RESPONSE AND WAIT FOR USER FEEDBACK** → revise if needed → then write the next section in a new response.
+
+Do NOT write 2+ sections in one response.
+Do NOT write all sections silently and dump the full paper.
+Each section deserves the user's focused review.
+</IRON-LAW>
+
 For each section, execute this loop:
 
 1. **Draft** — write following Step 4 standards, in the section's own `.tex` file
 2. **Length and citation check** — verify word count ≥ minimum, citation count ≥ minimum (from Step 4b table). If below, expand BEFORE continuing.
 3. **Self-review** — check against claim-evidence alignment, writing standards, and section outline
 4. **Cross-review** — re-read as a hostile reviewer: what would you attack?
-5. **User review** — present section to user, incorporate feedback
-6. **Revise** — update and re-verify
+5. **Present to user** — show the section content with this summary:
 
-**Present each section to the user individually.** Do NOT write all sections silently and present the full paper at once. Section-by-section review catches problems early.
+```
+Section: [name]
+Word count: [N] / minimum [M] — [PASS/FAIL]
+Citation count: [N] / minimum [M] — [PASS/FAIL]
+Figures referenced: [list]
+Tables referenced: [list]
+```
+
+6. **STOP and wait for user feedback**
+7. **Revise** based on feedback, then present again if changes were substantial
+
+Only after user approves this section → proceed to write the next section.
 
 ### Full-Paper Assembly
 

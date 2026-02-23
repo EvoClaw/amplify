@@ -264,15 +264,30 @@ For each main finding, systematically rule out alternative explanations identifi
 
 Verify against Phase 3 sufficiency criteria:
 
-- [ ] Data explored from multiple angles?
+- [ ] Data explored from multiple angles (not just one clustering/one visualization)?
 - [ ] Main hypothesis tested from multiple perspectives?
 - [ ] Exploratory analysis completed for unexpected patterns?
 - [ ] All analyses connect back to story line?
 - [ ] Statistical support sufficient for each claim?
 - [ ] Confounders identified and addressed?
 - [ ] At least 4–6 content points with figures/tables?
+- [ ] At least 4 distinct, publication-quality figures generated?
 
 If any item fails, return to the relevant stage before declaring Phase 4 complete.
+
+#### Type D Iteration Requirement
+
+<IRON-LAW>
+Type D projects also require iteration. "Ran analysis once and got some results" is NOT sufficient.
+
+After initial analysis, ask yourself:
+1. Are the findings interesting enough for the target venue? If not → deepen the analysis.
+2. Are there sub-populations, edge cases, or unexpected patterns worth exploring? If yes → run additional analyses.
+3. Does the story line from Phase 3 have gaps? If yes → fill them with additional analyses.
+4. Are the figures compelling or just "we did the analysis"? If the latter → generate better visualizations.
+
+Minimum: Present the user with at least 2 rounds of results before declaring Phase 4 complete. Round 1 = initial analysis. Round 2 = refined analysis addressing gaps, deepening insights, or exploring unexpected findings.
+</IRON-LAW>
 
 ---
 
@@ -363,3 +378,24 @@ Call Task tool with:
 4. Dispatch methodology review after experiments
 5. Dispatch reproducibility review before declaring results final
 6. Record everything in `docs/05_execution/`
+
+<IRON-LAW>
+## ⛔ MANDATORY STOP — After Phase 4 Completion
+
+When all experiments/analyses are done, **END YOUR RESPONSE** with a results summary:
+
+```
+Phase 4 complete. Results summary:
+  - [list key results, metrics, figures generated]
+  - [list any issues or limitations found]
+
+Shall I proceed to Phase 5 (Results Integration)?
+This will include a multi-agent discussion panel to stress-test
+the results before paper writing.
+```
+
+Do NOT invoke `results-integration` or begin organizing results in the same response.
+Do NOT skip to paper writing.
+
+**STOP. WAIT. The user must reply before you proceed.**
+</IRON-LAW>

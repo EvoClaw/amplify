@@ -82,7 +82,23 @@ Write `docs/01_intake/research-anchor.yaml` using the template at `templates/res
 
 ## Step 6: Transition
 
-Once confirmed, proceed to `research-direction-exploration` (Phase 1).
+Once the user confirms the `research-anchor.yaml`, proceed to `research-direction-exploration` (Phase 1) **in your next response** — not in this one.
+
+<IRON-LAW>
+## ⛔ MANDATORY STOP
+
+After presenting `research-anchor.yaml` for confirmation, **END YOUR RESPONSE IMMEDIATELY.**
+
+Do NOT invoke `research-direction-exploration` or any other skill in this same response.
+Do NOT start literature review or any Phase 1 activity.
+
+**STOP. WAIT. The user must confirm the anchor before you do anything else.**
+
+Your final output for this phase should be the anchor summary followed by:
+"Please confirm the above settings. Once confirmed, I'll begin Phase 1 (Literature Review & Direction Exploration)."
+
+Then STOP.
+</IRON-LAW>
 
 ## Anti-Pattern: Wrong Domain Expertise
 

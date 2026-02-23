@@ -289,3 +289,20 @@ This early check prevents investing months in a direction that lacks sufficient 
 
 **Gate passed → invoke problem-validation skill for Phase 2.**
 **Any item unchecked → resolve before proceeding.**
+
+<IRON-LAW>
+## ⛔ MANDATORY STOP
+
+After presenting the G1 gate checklist to the user, **END YOUR RESPONSE IMMEDIATELY.**
+
+Do NOT invoke `problem-validation` or any other skill in this same response.
+Do NOT say "let me proceed to Phase 2."
+Do NOT continue generating.
+
+**STOP. WAIT. The user must reply with approval before you do anything else.**
+
+Your final output for this phase should be the G1 checklist followed by a question like:
+"G1 gate checklist is above. Do you approve proceeding to Phase 2 (Problem Validation)?"
+
+Then STOP.
+</IRON-LAW>
