@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amplify — Automated Scientific Research</title>
+  <meta name="description" content="Turn your AI coding assistant into an autonomous research agent. From idea to publication, with full scientific rigor." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Particle canvas background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">Amplify</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#why">Why</a>
+        <a href="#how">How It Works</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#features">Features</a>
+        <a href="#comparison">Before &amp; After</a>
+        <a href="#start">Get Started</a>
+        <a href="https://github.com/EvoClaw/amplify" class="nav-github" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge animate-in">
+        <span class="badge-dot"></span>
+        Open Source Framework
+      </div>
+      <h1 class="hero-title animate-in">
+        From <span class="gradient-text">Idea</span> to
+        <span class="gradient-text">Publication</span>
+        <br />Automated.
+      </h1>
+      <p class="hero-subtitle animate-in">
+        Amplify turns your AI coding assistant into an autonomous research agent
+        that conducts the full scientific workflow — literature review, experiment design,
+        execution, and paper writing — with built-in rigor and human oversight.
+      </p>
+      <div class="hero-actions animate-in">
+        <a href="#start" class="btn btn-primary">
+          <span>Get Started</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://github.com/EvoClaw/amplify" class="btn btn-outline" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>View on GitHub</span>
+        </a>
+      </div>
+      <div class="hero-stats animate-in">
+        <div class="stat">
+          <span class="stat-value">24</span>
+          <span class="stat-label">Skills</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">7</span>
+          <span class="stat-label">Phases</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">4</span>
+          <span class="stat-label">Gates</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Layers</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-glow"></div>
+  </header>
+
+  <!-- Why Section -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">The Problem</span>
+        <h2 class="section-title">AI Assistants Are Powerful.<br /><span class="gradient-text">But They Can't Do Research.</span></h2>
+        <p class="section-desc">
+          Ask any AI coding assistant to "help me write a paper" and you'll get a model trained for 1 epoch,
+          cherry-picked metrics, fabricated references, and a report no reviewer would accept.
+          The raw intelligence is there — what's missing is <strong>methodology</strong>.
+        </p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card animate-on-scroll">
+          <div class="problem-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Jumps to Code</h3>
+          <p>Skips literature review, problem validation, and experimental design — going straight to implementation.</p>
+        </div>
+        <div class="problem-card animate-on-scroll">
+          <div class="problem-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          </div>
+          <h3>Cherry-Picks Results</h3>
+          <p>Reports only best-case metrics from a single seed, hiding failures and variance behind selective reporting.</p>
+        </div>
+        <div class="problem-card animate-on-scroll">
+          <div class="problem-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Fabricates Citations</h3>
+          <p>Invents plausible-sounding references that don't exist, undermining scientific integrity.</p>
+        </div>
+        <div class="problem-card animate-on-scroll">
+          <div class="problem-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>No Iteration</h3>
+          <p>Produces one-shot outputs without the diagnose-hypothesize-fix-measure cycles real research requires.</p>
+        </div>
+      </div>
+
+      <div class="solution-banner animate-on-scroll">
+        <div class="solution-glow"></div>
+        <div class="solution-content">
+          <h3>Amplify Bridges This Gap</h3>
+          <p>
+            Instead of building another standalone agent, Amplify is a <strong>skills-based framework</strong>
+            that teaches your existing AI assistant <em>how to do research properly</em>.
+            If you have a coding assistant and enough tokens, you have a co-scientist.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works — Animated Pipeline -->
+  <section class="section section-dark" id="how">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Workflow</span>
+        <h2 class="section-title">Seven Phases. Four Gates.<br /><span class="gradient-text">Full Scientific Rigor.</span></h2>
+        <p class="section-desc">
+          Every research project follows a structured 7-phase pipeline with mandatory human checkpoints.
+          The AI proposes, analyzes, and enforces. You decide.
+        </p>
+      </div>
+
+      <div class="pipeline">
+        <div class="pipeline-line"></div>
+
+        <div class="phase-card animate-on-scroll" data-phase="0">
+          <div class="phase-number">0</div>
+          <div class="phase-content">
+            <h3>Domain Anchoring</h3>
+            <p>Identify field, research type, generate expert persona, assess resources</p>
+            <div class="phase-tag">AI anchors context</div>
+          </div>
+        </div>
+
+        <div class="gate-marker animate-on-scroll">
+          <div class="gate-diamond">G1</div>
+          <span class="gate-label">Topic & Venue Lock</span>
+        </div>
+
+        <div class="phase-card animate-on-scroll" data-phase="1">
+          <div class="phase-number">1</div>
+          <div class="phase-content">
+            <h3>Direction Exploration</h3>
+            <p>Review 15–30 papers, 6 deep thinking strategies, multi-agent brainstorming for 5+ ideas</p>
+            <div class="phase-tag">3 agents debate ideas</div>
+          </div>
+        </div>
+
+        <div class="phase-card animate-on-scroll" data-phase="2">
+          <div class="phase-number">2</div>
+          <div class="phase-content">
+            <h3>Problem Validation</h3>
+            <p>Adversarial questioning by 3 agent personas — novelty litmus test, data screening</p>
+            <div class="phase-tag">Must survive scrutiny</div>
+          </div>
+        </div>
+
+        <div class="gate-marker animate-on-scroll">
+          <div class="gate-diamond">G2</div>
+          <span class="gate-label">Plan Freeze</span>
+        </div>
+
+        <div class="phase-card animate-on-scroll" data-phase="3">
+          <div class="phase-number">3</div>
+          <div class="phase-content">
+            <h3>Method Design</h3>
+            <p>Type-specific design, evaluation protocol locked, ablation plan, 3-agent review</p>
+            <div class="phase-tag">Metrics frozen here</div>
+          </div>
+        </div>
+
+        <div class="phase-card animate-on-scroll" data-phase="4">
+          <div class="phase-number">4</div>
+          <div class="phase-content">
+            <h3>Experiment Execution</h3>
+            <p>4a: exploratory probe → 4b: full execution. Baseline-first, 5 seeds, mandatory iteration</p>
+            <div class="phase-tag">Run to completion</div>
+          </div>
+        </div>
+
+        <div class="gate-marker animate-on-scroll">
+          <div class="gate-diamond">G3</div>
+          <span class="gate-label">Execution Readiness</span>
+        </div>
+
+        <div class="phase-card animate-on-scroll" data-phase="5">
+          <div class="phase-number">5</div>
+          <div class="phase-content">
+            <h3>Results Integration</h3>
+            <p>3-agent story deliberation, claim-evidence alignment, publishability check</p>
+            <div class="phase-tag">Narrative blueprint</div>
+          </div>
+        </div>
+
+        <div class="gate-marker animate-on-scroll">
+          <div class="gate-diamond">G4</div>
+          <span class="gate-label">Write-Ready</span>
+        </div>
+
+        <div class="phase-card animate-on-scroll" data-phase="6">
+          <div class="phase-number">6</div>
+          <div class="phase-content">
+            <h3>Paper Writing</h3>
+            <p>Modular LaTeX, per-section 3-agent polishing, full-paper review, reference verification</p>
+            <div class="phase-tag">Publication quality</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="section" id="architecture">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Architecture</span>
+        <h2 class="section-title">Three Layers of<br /><span class="gradient-text">Intelligent Control</span></h2>
+        <p class="section-desc">
+          24 skills organized in three layers — each with a distinct role in ensuring
+          your research meets the highest standards.
+        </p>
+      </div>
+
+      <div class="arch-stack">
+        <div class="arch-layer arch-meta animate-on-scroll">
+          <div class="arch-layer-header">
+            <div class="arch-layer-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3>Meta-Control Layer</h3>
+              <span class="arch-count">4 skills</span>
+            </div>
+          </div>
+          <p class="arch-question">"Is this still on track?"</p>
+          <div class="arch-skills">
+            <span class="skill-chip">Novelty Classifier</span>
+            <span class="skill-chip">Scope Control</span>
+            <span class="skill-chip">Pivot or Kill</span>
+            <span class="skill-chip">Venue Alignment</span>
+          </div>
+        </div>
+
+        <div class="arch-layer arch-discipline animate-on-scroll">
+          <div class="arch-layer-header">
+            <div class="arch-layer-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <div>
+              <h3>Discipline Layer</h3>
+              <span class="arch-count">7 skills</span>
+            </div>
+          </div>
+          <p class="arch-question">"What rules must I follow?"</p>
+          <div class="arch-skills">
+            <span class="skill-chip">Metric Lock</span>
+            <span class="skill-chip">Anti-Cherry-Pick</span>
+            <span class="skill-chip">Claim-Evidence</span>
+            <span class="skill-chip">Figure Quality</span>
+            <span class="skill-chip">Alt. Hypothesis</span>
+            <span class="skill-chip">Reproducibility</span>
+            <span class="skill-chip">Verification</span>
+          </div>
+        </div>
+
+        <div class="arch-layer arch-workflow animate-on-scroll">
+          <div class="arch-layer-header">
+            <div class="arch-layer-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <h3>Workflow Layer</h3>
+              <span class="arch-count">13 skills</span>
+            </div>
+          </div>
+          <p class="arch-question">"What do I do next?"</p>
+          <div class="arch-skills">
+            <span class="skill-chip">Domain Anchoring</span>
+            <span class="skill-chip">Direction Exploration</span>
+            <span class="skill-chip">Problem Validation</span>
+            <span class="skill-chip">Method Design</span>
+            <span class="skill-chip">Evaluation Protocol</span>
+            <span class="skill-chip">Analysis Storyboard</span>
+            <span class="skill-chip">Experiment Execution</span>
+            <span class="skill-chip">Results Integration</span>
+            <span class="skill-chip">Paper Writing</span>
+            <span class="skill-chip">Multi-Round Deliberation</span>
+            <span class="skill-chip">Git Worktrees</span>
+            <span class="skill-chip">Parallel Agents</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section-dark" id="features">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title">Built for<br /><span class="gradient-text">Real Science</span></h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Multi-Agent Deliberation</h3>
+          <p>Specialized agent panels — not single-agent reasoning — debate at every stage where judgment matters. Up to 5 rounds of iterative evaluation until consensus.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <h3>Continuous Literature Search</h3>
+          <p>Literature retrieval runs throughout all phases — not just once. From broad discovery in Phase 1 to targeted citation verification in Phase 6.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Discipline Enforcement</h3>
+          <p>Metrics frozen after plan freeze. All seeds reported. Every claim maps to evidence. Fabricated references blocked. No shortcuts allowed.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Deep Idea Generation</h3>
+          <p>6 thinking strategies — contradiction mining, assumption challenging, cross-domain transfer, and more — go beyond "what papers say is missing."</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Publication-Quality Figures</h3>
+          <p>Venue-specific styles enforced automatically — CNS, CS Conference, IEEE, Life Science, Physical Sciences. ≥300 DPI, vector format, colorblind-safe.</p>
+        </div>
+
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          </div>
+          <h3>Four Research Types</h3>
+          <p>Method (M), Discovery (D), Tool (C), or Hybrid (H) — each type triggers specialized workflows, evaluation protocols, and paper structures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="section" id="comparison">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Comparison</span>
+        <h2 class="section-title">Before &amp; After<br /><span class="gradient-text">Amplify</span></h2>
+      </div>
+
+      <div class="comparison-table animate-on-scroll">
+        <div class="comp-header">
+          <div class="comp-col comp-label-col"></div>
+          <div class="comp-col comp-before">
+            <span class="comp-badge comp-badge-before">Bare AI Assistant</span>
+          </div>
+          <div class="comp-col comp-after">
+            <span class="comp-badge comp-badge-after">With Amplify</span>
+          </div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">Starting point</div>
+          <div class="comp-col comp-before">Jumps straight to code</div>
+          <div class="comp-col comp-after">Literature review, deep thinking, multi-agent brainstorming first</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">Research question</div>
+          <div class="comp-col comp-before">Whatever the user said</div>
+          <div class="comp-col comp-after">Refined through adversarial 3-agent deliberation</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">Metrics</div>
+          <div class="comp-col comp-before">Chosen after seeing results</div>
+          <div class="comp-col comp-after">Locked before any experiment runs</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">Experiments</div>
+          <div class="comp-col comp-before">Single seed, best-case reported</div>
+          <div class="comp-col comp-after">5 seeds, all results including failures</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">Baselines</div>
+          <div class="comp-col comp-before">None or weak</div>
+          <div class="comp-col comp-after">Baseline-first execution; skipping forbidden</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">Paper</div>
+          <div class="comp-col comp-before">Written in one shot</div>
+          <div class="comp-col comp-after">Per-section multi-agent review + full-paper review</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">References</div>
+          <div class="comp-col comp-before">Unverified, often fabricated</div>
+          <div class="comp-col comp-after">Every citation checked; fabrication blocked</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-col comp-label-col">Human control</div>
+          <div class="comp-col comp-before">Black-box process</div>
+          <div class="comp-col comp-after">15+ decision points; 4 mandatory gates</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Human Control -->
+  <section class="section section-dark" id="control">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Your Choice</span>
+        <h2 class="section-title">You Decide<br /><span class="gradient-text">How Much to Drive</span></h2>
+        <p class="section-desc">
+          Amplify enforces human checkpoints at every critical juncture.
+          But how you engage is entirely up to you.
+        </p>
+      </div>
+
+      <div class="control-grid">
+        <div class="control-card animate-on-scroll">
+          <div class="control-level">Hands-on</div>
+          <p>Debate research questions, suggest method modifications, guide analysis, edit paper sections</p>
+          <span class="control-best">Best for: Shaping every decision</span>
+        </div>
+        <div class="control-card control-card-highlight animate-on-scroll">
+          <div class="control-level">Supervisory</div>
+          <p>Review deliverables at each gate, give high-level feedback, approve or redirect</p>
+          <span class="control-best">Best for: Quality control without micro-managing</span>
+        </div>
+        <div class="control-card animate-on-scroll">
+          <div class="control-level">Approve &amp; Go</div>
+          <p>Say "approved" at each gate and let the AI handle details autonomously</p>
+          <span class="control-best">Best for: Maximum automation, minimal overhead</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started -->
+  <section class="section" id="start">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-tag">Quick Start</span>
+        <h2 class="section-title">Up and Running<br /><span class="gradient-text">In 3 Steps</span></h2>
+      </div>
+
+      <div class="steps">
+        <div class="step-card animate-on-scroll">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Install the Plugin</h3>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-title">terminal</span>
+              </div>
+              <pre><code><span class="code-comment"># Copy or symlink to your IDE skills folder</span>
+mkdir -p ~/.cursor/skills
+cp -r /path/to/amplify ~/.cursor/skills/amplify</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card animate-on-scroll">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Add the Bootstrap Rule</h3>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-title">terminal</span>
+              </div>
+              <pre><code><span class="code-comment"># User-level (all projects)</span>
+mkdir -p ~/.cursor/rules
+cp ~/.cursor/skills/amplify/install/amplify-bootstrap.mdc \
+   ~/.cursor/rules/</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-card animate-on-scroll">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Start Researching</h3>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-title">chat</span>
+              </div>
+              <pre><code><span class="code-comment"># Type in a new chat session:</span>
+I want to develop a new method for
+multi-modal data integration and apply it
+to disease subtype discovery.</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prereq animate-on-scroll">
+        <h4>Prerequisites</h4>
+        <div class="prereq-items">
+          <span class="prereq-chip">Cursor IDE</span>
+          <span class="prereq-chip">Git</span>
+          <span class="prereq-chip">LaTeX (TeX Live / MiKTeX)</span>
+          <span class="prereq-chip">Python 3 + pyyaml</span>
+        </div>
+        <p class="prereq-note">Also compatible with Claude Code, OpenClaw, and other LLM-powered coding assistants.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">Amplify</span>
+          <p class="footer-tagline">Automated scientific research — from idea to publication.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/EvoClaw/amplify" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/EvoClaw/amplify/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+          <a href="https://github.com/EvoClaw/amplify/issues" target="_blank" rel="noopener">Issues</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 An AI for Science Research Group at HKUST(GZ). Built with Amplify.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
