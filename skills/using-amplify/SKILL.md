@@ -31,7 +31,8 @@ Violating this rule — even once — collapses the entire research workflow int
 - After Phase 2: present feasibility assessment → **STOP. Wait for user.**
 - After Phase 3 + G2: present frozen plan → **STOP. Wait for user.**
 - After G3: present readiness check → **STOP. Wait for user.**
-- After Phase 4: present results summary → **STOP. Ask: "Are results sufficient? Shall I proceed to results integration?"**
+- After Phase 4a: present exploration report + options (proceed / local adjustment / focused re-discussion / return to Phase 3 / return to Phase 2) → **STOP. Wait for user decision.** Most common outcome is local adjustment, not full phase reset.
+- After Phase 4b: present results summary → **STOP. Ask: "Are results sufficient? Shall I proceed to results integration?"**
 - After Phase 5 + G4: present content outline → **STOP. Ask: "Shall I proceed to paper writing?"**
 - During Phase 6: present EACH SECTION individually → **STOP. Wait for user feedback on that section.**
 
@@ -39,6 +40,16 @@ Violating this rule — even once — collapses the entire research workflow int
 
 - Explicit: "approved", "yes", "proceed", "looks good, go ahead", "继续", "可以"
 - NOT approval: silence, no response, "ok" (ambiguous), or your own judgment that "it looks fine"
+
+### Fast Mode
+
+If the user says **"fast mode"**, **"快速模式"**, or **"combine phases"** at the start:
+- Combine Phase 0 + Phase 1 into a single turn (but still present both deliverables)
+- After each gate, still STOP and wait for approval (gates are never combined)
+- Multi-agent deliberation rounds are reduced to max 3 (instead of 5)
+- Per-section polishing rounds are reduced to max 2 (instead of 5)
+
+**Fast Mode does NOT skip any phase or gate.** It only reduces stops and deliberation rounds. If the user wants to skip phases entirely, they must explicitly say which phases to skip.
 
 ### Rationalizations that WILL occur — reject them all
 
@@ -172,15 +183,52 @@ Once activated, these skills remain in effect for the rest of the project:
 
 These rules are NON-NEGOTIABLE:
 
-1. **ONE PHASE PER TURN** (see Absolute Rule #1 above): Complete one phase, present deliverables, STOP, wait for user approval. Never chain phases.
-2. **NO PHASE IS OPTIONAL** (see Absolute Rule #2 above): All 7 phases required. Phase 2 required for Type D. Phase 5 multi-agent discussion required.
-3. **Run to completion (Type M)**: Every method must execute its full procedure before results are valid. For iterative methods (DL), train to convergence; for non-iterative methods (RF, SVM), fit fully. Partial runs are NOT experiments.
-4. **Iterate before moving on (Type M)**: Minimum 3 rounds of diagnose-hypothesize-fix-measure before declaring failure.
-5. **Performance bar**: Method must be competitive with baselines before proceeding to results integration.
-6. **Explicit user confirmation for paper writing**: User must say "ready for paper" — do NOT auto-proceed. ASK and WAIT.
-7. **Minimum paper quality**: ≥3 figures, ≥2 tables, ≥20 references (conference), substantive sections (600+ word intro, 500+ word related work, 400+ word discussion).
-8. **Modular LaTeX**: One `.tex` file per section. Present each section to user individually, wait for feedback, revise, then proceed.
-9. **Figure quality**: Every figure must pass the per-figure checklist (readable at print size, axis labels with units, colorblind-safe palette, error bars, self-contained caption, vector format). Apply the style template from the first plot onward. Same method = same color in all figures.
+**— Core Workflow —**
+
+1. **ONE PHASE PER TURN**: Complete one phase, present deliverables, STOP, wait for user approval. Never chain phases.
+2. **NO PHASE IS OPTIONAL**: All phases (0–6) required for all research types. Phase 2 required for Type D. Phase 5 multi-agent discussion required.
+3. **Explicit user confirmation for paper writing**: User must say "ready for paper" — do NOT auto-proceed.
+4. **Phase 4a exploratory stage is mandatory**: Before full-scale execution, run the core pipeline once. Present findings and let the user decide: proceed, locally adjust, focused re-discussion, or return to Phase 2/3.
+5. **Non-linear iteration**: Phase 4a findings often lead to local adjustments, not full phase resets. Return to Phase 2/3 is available but reserved for fundamental problems.
+6. **Phase 2 escalation mechanism**: If agents can't converge after 3+ rounds, present user with options: return to Phase 1, try new formulation, proceed as-is, or pause.
+7. **Known-answer questions**: If user's question has a well-established answer, tell them directly and suggest novel alternatives.
+
+**— Multi-Agent Deliberation —**
+
+8. **Multi-agent deliberation in Phase 1, 2, 3, 5, 6**: Phase 1: Visionary + Pragmatic + Scout brainstorm ideas. Phase 2: Professor + Editor + Researcher (Type M/D/H) or Target User + Editor + Software Architect (Type C). Phase 3: Innovation/Technical/Baseline (Type M), Domain/Methodology/Statistics (Type D), or Target User/Competing Tool Expert/Software Quality Advisor (Type C). Phase 5: Story Architect + Devil's Advocate + Audience Specialist. Phase 6: per-section polishing + full-paper review.
+9. **Multi-round deliberation**: All multi-agent discussions iterate until ALL agents PASS. Dispatch ALL agents every round. Max 5 rounds. If agents can't converge, present disagreements to user.
+10. **Phase 5 designs the story, Phase 6 writes and refines it**: Phase 5 produces an ARGUMENT BLUEPRINT. Phase 6 starts from it but CAN refine and deepen during writing. Phase 6 should NOT start from scratch.
+11. **Automated polishing per section in Phase 6**: Write → dispatch 3 agents → synthesize → rewrite → ALL agents re-check (up to 5 rounds) → present POLISHED version. Agents check writing quality AND can suggest content refinements.
+12. **Fatal findings block paper writing**: If Devil's Advocate flags "fatal" vulnerability in Phase 5, do NOT proceed to paper writing. Present options to user.
+13. **Experiment supplements from discussion**: Missing experiments identified by agents are triaged as REQUIRED / RECOMMENDED / nice-to-have. REQUIRED supplements block paper writing until resolved or waived by user.
+
+**— Execution Discipline —**
+
+14. **Run to completion**: Every method/analysis must execute its full procedure before results are valid. Partial runs are NOT experiments.
+15. **Iterate before moving on (Type M)**: Minimum 3 rounds of diagnose-hypothesize-fix-measure before declaring failure.
+16. **Performance bar (Type M)**: Method must be competitive with baselines before proceeding to results integration.
+17. **Domain sanity check**: Before reporting results, verify they make scientific sense. Debug pipeline before reporting suspicious results.
+18. **No deferred questions**: Phase 2 must produce a SPECIFIC research question. "We'll find the real question during analysis" is NOT acceptable.
+19. **Data novelty for Type D**: Over-analyzed datasets with standard tools will NOT yield novel findings. Warn user and suggest alternatives.
+
+**— Paper Quality —**
+
+20. **Research paper, NOT course report**: Every paragraph must advance an argument, not describe a procedure. Connect results to scientific meaning, cite prior work, make interpretive claims.
+21. **Scientific novelty required**: Results must contain at least one finding a domain expert wouldn't have predicted.
+22. **Minimum paper quality**: ≥3 figures, ≥2 tables, ≥20 references, substantive sections (600+ word intro, 500+ word related work, 400+ word discussion).
+23. **Hard word count minimums**: If minimum is 600 and section has 560, it FAILS. "Close enough" is NOT acceptable.
+24. **Equal polishing for ALL sections**: Every section — including Discussion, Related Work, Abstract, Conclusion — gets the FULL three-agent polishing cycle.
+25. **Modular LaTeX**: One `.tex` file per section. Present each polished section individually, wait for feedback.
+26. **Figure quality**: Every figure must pass the per-figure checklist. Same method = same color in all figures.
+27. **Proactive fidelity**: Every section automatically checks claims against experiment logs before presenting. Interpretation is ENCOURAGED; fabrication is FORBIDDEN.
+
+**— Cross-Cutting —**
+
+28. **Expert persona in Phase 1**: Adopt the persona of a senior professor in the specific field.
+29. **On-demand literature search**: Literature retrieval is continuous (Phase 1–6). Search whenever needed, add to `paper-list.md` with phase tag.
+30. **Theoretical analysis support (optional)**: If project has theoretical claims, plan in Phase 3, execute proofs in Phase 4, format in Phase 6. Not all papers need theory.
+31. **Deep thinking strategies in Phase 1**: After literature review, apply 6 structured thinking strategies (contradiction mining, assumption challenging, cross-domain transfer, limitation-to-opportunity, counterfactual reasoning, trend extrapolation) to generate insights. Do NOT just list gaps from papers — actively think.
+32. **Multi-idea generation and brainstorming**: Generate at least 5 candidate ideas as structured cards, then run automated 3-agent brainstorming (Visionary + Pragmatic + Scout, max 5 rounds) to refine and rank. Present top 2-3 to user for selection. The user chooses — agents brainstorm.
 
 ## Red Flags
 
@@ -215,7 +263,7 @@ Every decision must account for the project's research type (from research-ancho
 
 - **Type M (Method)**: Performance-driven. Needs baselines, ablations, statistical significance.
 - **Type D (Discovery)**: Story-driven. Needs analysis breadth, mechanism exploration, alternative hypothesis exclusion.
-- **Type C (Tool)**: Utility-driven. Needs usability, benchmarks, documentation.
+- **Type C (Tool)**: Utility-driven. Needs usability, correctness, benchmarks, scalability, comparison to existing tools, case studies, documentation. Evaluated on solving a REAL problem better than alternatives.
 - **Type H (Hybrid)**: Dual-track. Needs elements from both M and D.
 
 ## User Instructions

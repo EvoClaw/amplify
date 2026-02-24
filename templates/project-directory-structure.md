@@ -60,7 +60,23 @@ project_root/
 │   ├── raw/                               # Immutable raw data
 │   ├── processed/                         # Preprocessed data
 │   └── splits/                            # Train/val/test splits
-└── experiments/
-    ├── configs/
-    └── results/
+├── experiments/
+│   ├── configs/
+│   └── results/
+├── tool/                                  # [Type C only] Tool-specific files
+│   ├── docs/                              # API reference, user guide
+│   ├── benchmarks/                        # Benchmark scripts and results
+│   │   ├── correctness/
+│   │   ├── performance/
+│   │   └── scalability/
+│   ├── case_studies/                      # Real-world use case scripts and outputs
+│   ├── install_test/                      # Clean-environment installation test
+│   └── comparison/                        # Head-to-head comparison scripts
+└── dist/                                  # [Type C only] Distribution packaging
+    ├── setup.py / pyproject.toml
+    └── README.md                          # User-facing README (separate from research README)
 ```
+
+**Notes:**
+- `tool/` and `dist/` directories are only used for **Type C** projects.
+- Type M/D/H projects use `src/`, `data/`, and `experiments/` as their primary working directories.

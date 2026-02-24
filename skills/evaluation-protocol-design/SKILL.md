@@ -7,7 +7,9 @@ description: Use when designing the evaluation protocol for a method development
 
 ## Overview
 
-Applies to **Type M** and **Type H** projects. The evaluation protocol is the contract between you and the scientific community. Once locked, it defines exactly how success is measured. Designing it after seeing results is not design — it is rationalization.
+Applies to **Type M**, **Type C**, and **Type H** projects. The evaluation protocol is the contract between you and the scientific community. Once locked, it defines exactly how success is measured. Designing it after seeing results is not design — it is rationalization.
+
+**Type routing:** Type M and Type H follow the standard protocol below. Type C follows the **Type C Protocol** section at the end of this skill.
 
 ## Step-by-Step Protocol Design
 
@@ -122,6 +124,67 @@ After the user confirms **ALL eight items**:
 - Omitting fairness constraints for baseline comparison
 - Proceeding before user confirms every item
 - Locking the protocol without user sign-off
+
+---
+
+## Type C Protocol — Tool / Software Evaluation
+
+Type C projects measure **utility**, not algorithmic novelty. The evaluation protocol is structured differently.
+
+### C1. Define Correctness Verification
+
+- **Gold standard / reference output**: What is ground truth for this tool's output?
+- **Test cases**: Minimum 3 diverse cases (simple, moderate, edge case)
+- **Acceptance threshold**: Exact match, or tolerance (e.g., numerical within 1e-6)
+
+### C2. Define Performance Benchmarks
+
+For each benchmark:
+- **Input specification**: What data, what size, what characteristics
+- **Metrics**: Runtime (wall-clock), peak memory, throughput (items/sec)
+- **Hardware specification**: CPU/GPU model, RAM, OS (must be identical across tools)
+- **Warm-up runs**: How many warm-up iterations before timing (recommend: 3)
+- **Repetitions**: How many timed runs (recommend: 5, report mean ± std)
+
+### C3. Define Scalability Tests
+
+- **Scaling variable**: What is varied (input size, number of features, number of samples, etc.)
+- **Scale points**: At least 4 points spanning 10×–1000× range (e.g., 1K, 10K, 100K, 1M)
+- **Metrics at each point**: Runtime, memory, correctness (does it still work at scale?)
+- **Failure threshold**: At what scale does the tool break? (memory limit, timeout)
+
+### C4. Define Comparison Protocol
+
+List ALL competing tools with:
+- **Name and version**: Pin exact versions
+- **Installation method**: How installed (pip, conda, source, Docker)
+- **Configuration**: Default settings or best-known settings (document which)
+- **Same benchmarks**: Identical input, identical hardware, identical metrics
+
+Minimum: 2 competing tools. Fewer than 2 = insufficient comparison.
+
+### C5. Define Case Studies (Optional but Recommended)
+
+- **2–3 real-world use cases** from the target domain
+- For each: input description, expected workflow, success criteria
+- Purpose: demonstrate the tool solves real problems, not just synthetic benchmarks
+
+### C6. Define Usability Assessment (Optional)
+
+- Installation test: Does it install cleanly on a fresh environment?
+- API review: Is the interface consistent and well-documented?
+- Error handling: Does it fail gracefully with informative messages?
+
+### C7. Finalization (Type C)
+
+After user confirms all applicable items:
+
+1. Write the complete protocol to `docs/03_plan/evaluation-protocol.yaml` (use the Type C section of the template)
+2. Set `locked: true`
+3. Announce: *"Evaluation protocol is now LOCKED."*
+4. **REQUIRED:** Activate `amplify:metric-lock` skill
+
+---
 
 ## Rationalization Prevention
 

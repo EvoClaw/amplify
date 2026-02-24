@@ -129,12 +129,12 @@ for ref in $refs; do
 done
 
 # --- Test 11: Expected skill count ---
-echo "Test 11: Skill count matches design (23 skills)"
+echo "Test 11: Skill count matches design (24 skills)"
 skill_count=$(find "$PLUGIN_ROOT/skills" -maxdepth 1 -mindepth 1 -type d | wc -l | tr -d ' ')
-if [ "$skill_count" -eq 23 ]; then
-    pass "23 skill directories found"
+if [ "$skill_count" -eq 24 ]; then
+    pass "24 skill directories found"
 else
-    fail "Expected 23 skill directories, found $skill_count"
+    fail "Expected 24 skill directories, found $skill_count"
 fi
 
 # --- Test 12: Expected command count ---

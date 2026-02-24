@@ -1,9 +1,11 @@
 # evaluation-protocol.yaml — Evaluation Contract (LOCKED once confirmed)
-# This file defines the evaluation methodology for Type M and Type H projects.
+# This file defines the evaluation methodology for Type M, Type C, and Type H projects.
 # Once locked, NO agent may modify this file without explicit user authorization.
 # Unauthorized modification equals academic misconduct.
 #
 # Location: docs/03_plan/evaluation-protocol.yaml
+# Type M/H: use primary_metrics, evaluation_protocol, baselines sections
+# Type C: use tool_evaluation section (below the Type M/H section)
 
 primary_metrics:              # Main metrics for core claims — IMMUTABLE after lock
   - name: ""                  # e.g., "Accuracy (5-way 1-shot)"
@@ -55,6 +57,48 @@ resource_constraints:         # Fairness constraints
   max_gpu_hours: null
   pretrained_allowed: false   # If true for ours, must be true for baselines too
   extra_data_allowed: false
+
+# ═══════════════════════════════════════════════════════════════
+# Type C — Tool / Software Evaluation (use this section for Type C)
+# ═══════════════════════════════════════════════════════════════
+
+tool_evaluation:
+  correctness:
+    gold_standard: ""              # Reference output or ground truth description
+    test_cases:                    # Minimum 3 (simple, moderate, edge case)
+      - name: ""
+        input: ""
+        expected_output: ""
+        tolerance: ""              # "exact" or numerical tolerance (e.g., "1e-6")
+  performance:
+    benchmarks:
+      - name: ""                   # Benchmark identifier
+        input_spec: ""             # Data description and size
+        hardware: ""               # CPU/GPU model, RAM, OS
+        warmup_runs: 3
+        timed_runs: 5
+        metrics: ["runtime_sec", "peak_memory_mb", "throughput"]
+    scalability:
+      scaling_variable: ""         # What is varied (e.g., "number of samples")
+      scale_points: []             # e.g., [1000, 10000, 100000, 1000000]
+      failure_threshold: ""        # At what scale does the tool break?
+  comparison:
+    competing_tools:
+      - name: ""
+        version: ""
+        install_method: ""         # pip, conda, source, Docker
+        configuration: ""          # Default or best-known settings
+        repo_url: ""
+    same_benchmarks: true          # All tools run identical benchmarks on identical hardware
+  case_studies:                    # 2-3 real-world use cases (recommended)
+    - name: ""
+      domain: ""
+      input_description: ""
+      success_criteria: ""
+  usability:                       # Optional
+    installation_test: false
+    api_review: false
+    error_handling: false
 
 locked: false
 locked_by: ""                 # "user"
